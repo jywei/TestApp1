@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature 'Craeting Posts' do
+RSpec.feature 'Creating Posts' do
   scenario 'can create job' do
     visit '/'
     click_link "Create Post"
@@ -8,6 +8,9 @@ RSpec.feature 'Craeting Posts' do
     fill_in "Title", with: "title"
     fill_in "Caption", with: "caption"
 
-    click_button "Create Update"
+    click_button "Create Post"
+
+    expect(page).to have_content('title')
+    expect(page).to have_content('caption')
   end
 end
